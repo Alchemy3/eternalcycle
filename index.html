@@ -1,34 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Eternal Cycle</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ouroboros</title>
   <style>
     body {
       margin: 0;
       background-color: black;
       color: white;
-      font-family: Arial, sans-serif;
+      font-family: monospace;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
     }
-    img.logo {
+
+    #logo {
       max-width: 300px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
+
     input[type="text"] {
       padding: 10px;
-      font-size: 18px;
+      font-size: 16px;
       width: 300px;
-      text-align: center;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: white;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #message {
+      margin-top: 20px;
+      color: red;
     }
   </style>
 </head>
 <body>
-  <img src="logo.png" alt="Ouroboros Logo" class="logo">
-  <input type="text" placeholder="Enter code...">
+  <img id="logo" src="logo.png" alt="Ouroboros Logo" />
+  <input type="text" id="codeInput" placeholder="Enter code..." />
+  <button onclick="checkCode()">Submit</button>
+  <div id="message"></div>
+
+  <script>
+    function checkCode() {
+      const input = document.getElementById('codeInput').value.trim().toLowerCase();
+      const validCode = 'ouroboros'; // ← this is the first code
+
+      if (input === validCode) {
+        window.location.href = 'puzzle1.html'; // go to next puzzle/page
+      } else {
+        document.getElementById('message').textContent = 'Incorrect code. Try again.';
+      }
+    }
+  </script>
 </body>
 </html>
