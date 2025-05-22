@@ -1,69 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ouroboros</title>
+  <title>Welcome to the Cycle</title>
   <style>
     body {
-      margin: 0;
       background-color: black;
       color: white;
-      font-family: monospace;
+      font-family: 'Courier New', Courier, monospace;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
     }
-
     #logo {
-      max-width: 300px;
+      width: 300px;
       margin-bottom: 30px;
     }
-
     input[type="text"] {
       padding: 10px;
-      font-size: 16px;
-      width: 300px;
+      font-size: 18px;
       border: none;
       border-radius: 5px;
+      outline: none;
+      width: 300px;
+      text-align: center;
     }
-
     button {
-      margin-top: 10px;
+      margin-top: 15px;
       padding: 10px 20px;
-      font-size: 16px;
+      font-size: 18px;
       background-color: white;
       color: black;
       border: none;
       border-radius: 5px;
       cursor: pointer;
     }
-
-    #message {
-      margin-top: 20px;
+    #error {
       color: red;
+      margin-top: 10px;
+      display: none;
     }
   </style>
 </head>
 <body>
-  <img id="logo" src="dumbass snake.png.png" alt="Ouroboros Logo" />
-  <input type="text" id="codeInput" placeholder="Enter code..." />
+  <img src="dumbass snake.png.png" id="logo" alt="Ouroboros Logo">
+  <input type="text" id="codeInput" placeholder="Enter your code">
   <button onclick="checkCode()">Submit</button>
-  <div id="message"></div>
+  <div id="error">Incorrect code. Try again.</div>
 
   <script>
     function checkCode() {
-      const input = document.getElementById('codeInput').value.trim().toLowerCase();
-      const validCode = 'ouroboros'; // ← this is the first code
-
-      if (input === validCode) {
-        window.location.href = 'puzzle1.html'; // go to next puzzle/page
+      const input = document.getElementById("codeInput").value.trim().toLowerCase();
+      const correctCode = "ouroboros"; // <-- Set your first code here
+      if (input === correctCode) {
+        window.location.href = "puzzle1.html"; // <-- Page it links to
       } else {
-        document.getElementById('message').textContent = 'Incorrect code. Try again.';
+        document.getElementById("error").style.display = "block";
       }
     }
   </script>
 </body>
 </html>
+
