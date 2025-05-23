@@ -50,16 +50,26 @@
   <div id="error">Incorrect code. Try again.</div>
 
   <script>
-    function checkCode() {
-      const input = document.getElementById("codeInput").value.trim().toLowerCase();
-      const correctCode = "ouroboros"; // <-- Set your first code here
-      if (input === correctCode) {
-        window.location.href = "puzzle1.html"; // <-- Page it links to
-      } else {
-        document.getElementById("error").style.display = "block";
-      }
+  const validCodes = [
+    "Life",
+    "is short",
+    "Death is",
+    "Eternal",
+    "May the",
+    "Cycle continue"
+  ];
+
+  document.getElementById("codeForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const input = document.getElementById("codeInput").value.trim();
+    if (validCodes.includes(input)) {
+      window.location.href = "puzzle1.html";
+    } else {
+      alert("Incorrect code. Try again.");
     }
-  </script>
+  });
+</script>
+
 </body>
 </html>
 
