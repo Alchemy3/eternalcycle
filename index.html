@@ -1,78 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ouroboros</title>
-  <style>
-    body {
-      background-color: black;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding-top: 100px;
-    }
-
-    img {
-      max-width: 200px;
-      margin-bottom: 50px;
-    }
-
-    input[type="text"] {
-      padding: 10px;
-      font-size: 18px;
-      width: 300px;
-      border-radius: 5px;
-      border: none;
-    }
-
-    button {
-      padding: 10px 20px;
-      font-size: 18px;
-      margin-left: 10px;
-      border: none;
-      background-color: #444;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #666;
-    }
-  </style>
+  <title>Test Code Page</title>
 </head>
-<body>
+<body style="background:black; color:white; text-align:center; padding-top:100px;">
 
-  <img src="logo.png" alt="Ouroboros Logo" />
-
-  <form id="codeForm">
-    <input type="text" id="codeInput" placeholder="Enter your code..." />
+  <h1>Enter your code</h1>
+  <form onsubmit="return checkCode()">
+    <input type="text" id="codeInput" placeholder="Enter code here" />
     <button type="submit">Submit</button>
   </form>
 
   <script>
-    const validCodes = [
-      "Life",
-      "is short",
-      "Death is",
-      "Eternal",
-      "May the",
-      "Cycle continue"
-    ];
-
-    document.getElementById("codeForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const input = document.getElementById("codeInput").value.trim();
-      if (validCodes.includes(input)) {
+    function checkCode() {
+      const code = document.getElementById("codeInput").value.trim();
+      const codes = ["Life", "is short", "Death is", "Eternal", "May the", "Cycle continue"];
+      if (codes.includes(code)) {
         window.location.href = "puzzle1.html";
       } else {
-        alert("Incorrect code. Try again.");
+        alert("Wrong code.");
       }
-    });
+      return false;
+    }
   </script>
 
 </body>
 </html>
-
-
