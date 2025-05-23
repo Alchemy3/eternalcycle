@@ -1,75 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Welcome to the Cycle</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ouroboros</title>
   <style>
     body {
       background-color: black;
       color: white;
-      font-family: 'Courier New', Courier, monospace;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
     }
-    #logo {
-      width: 300px;
-      margin-bottom: 30px;
+
+    img {
+      max-width: 200px;
+      margin-bottom: 50px;
     }
+
     input[type="text"] {
       padding: 10px;
       font-size: 18px;
-      border: none;
-      border-radius: 5px;
-      outline: none;
       width: 300px;
-      text-align: center;
+      border-radius: 5px;
+      border: none;
     }
+
     button {
-      margin-top: 15px;
       padding: 10px 20px;
       font-size: 18px;
-      background-color: white;
-      color: black;
+      margin-left: 10px;
       border: none;
+      background-color: #444;
+      color: white;
       border-radius: 5px;
       cursor: pointer;
     }
-    #error {
-      color: red;
-      margin-top: 10px;
-      display: none;
+
+    button:hover {
+      background-color: #666;
     }
   </style>
 </head>
 <body>
-  <img src="logo.png" id="logo" alt="Ouroboros Logo">
-  <input type="text" id="codeInput" placeholder="Enter your code">
-  <button onclick="checkCode()">Submit</button>
-  <div id="error">Incorrect code. Try again.</div>
+
+  <img src="logo.png" alt="Ouroboros Logo" />
+
+  <form id="codeForm">
+    <input type="text" id="codeInput" placeholder="Enter your code..." />
+    <button type="submit">Submit</button>
+  </form>
 
   <script>
-  const validCodes = [
-    "Life",
-    "is short",
-    "Death is",
-    "Eternal",
-    "May the",
-    "Cycle continue"
-  ];
+    const validCodes = [
+      "Life",
+      "is short",
+      "Death is",
+      "Eternal",
+      "May the",
+      "Cycle continue"
+    ];
 
-  document.getElementById("codeForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    const input = document.getElementById("codeInput").value.trim();
-    if (validCodes.includes(input)) {
-      window.location.href = "puzzle1.html";
-    } else {
-      alert("Incorrect code. Try again.");
-    }
-  });
-</script>
+    document.getElementById("codeForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const input = document.getElementById("codeInput").value.trim();
+      if (validCodes.includes(input)) {
+        window.location.href = "puzzle1.html";
+      } else {
+        alert("Incorrect code. Try again.");
+      }
+    });
+  </script>
 
 </body>
 </html>
+
 
